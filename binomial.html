@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binomial Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-container { background-color: #f8f9fa; border-radius: 10px; padding: 25px; }
+        #pascalTriangle { overflow-x: auto; }
+        .triangle-row { display: flex; justify-content: center; }
+        .triangle-cell { 
+            width: 40px; 
+            height: 40px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 2px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Math Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Binomial Calculator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="algebra.html">Algebra</a></li>
+                    <li class="nav-item"><a class="nav-link" href="geometry.html">Geometry</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Binomial Coefficient Calculator</h1>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6 form-container mb-5">
+                <form id="binomialForm">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="nValue" class="form-label">Total items (n):</label>
+                            <input type="number" class="form-control" id="nValue" min="0" max="30" value="5" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="kValue" class="form-label">Choose items (k):</label>
+                            <input type="number" class="form-control" id="kValue" min="0" max="30" value="2" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Calculate</button>
+                </form>
+                
+                <div id="result" class="mt-4 text-center">
+                    <h3>C(<span id="nDisplay">5</span>, <span id="kDisplay">2</span>) = <span id="coefficient">10</span></h3>
+                    <p class="lead mt-3" id="explanation">Ways to choose 2 items from 5</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-5">
+            <h3 class="text-center mb-4">Pascal's Triangle</h3>
+            <div id="pascalTriangle" class="d-flex flex-column align-items-center"></div>
+        </div>
+    </div>
+
+    <script>
+        function binomialCoefficient(n, k) {
+            if (k < 0 || k > n) return 0;
+            if (k === 0 || k === n) return 1;
+            
+            let res = 1;
+            for (let i = 1; i <= k; i++) {
+                res = res * (n - i + 1) / i;
+            }
+            return Math.round(res);
+        }
+
+        function generatePascalsTriangle(rows) {
+            const triangle = [];
+            for (let i = 0; i < rows; i++) {
+triangle[i] = [];
+                for (let j = 0; j <= i; j++) {
+                    if (j === 0 || j === i) {
+                        triangle[i][j] = 1;
+                    } else {
+                        triangle[i][j] = triangle[i-1][j-1] + triangle[i-1][j];
+                    }
+                }
+            }
+            return triangle;
+        }
+
+        function displayPascalsTriangle() {
+            const container = document.getElementById('pascalTriangle');
+            container.innerHTML = '';
+            
+            const n = parseInt(document.getElementById('nValue').value);
+            const rows = Math.min(n + 1, 15); // Limit to 15 rows for display
+            
+            const triangle = generatePascalsTriangle(rows);
+            
+            triangle.forEach((row, rowIndex) => {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'triangle-row';
+                
+                row.forEach(cell => {
+                    const cellDiv = document.createElement('div');
+                    cellDiv.className = 'triangle-cell';
+                    cellDiv.textContent = cell;
+                    
+                    // Highlight current n's row
+                    if (rowIndex === n) {
+                        cellDiv.style.backgroundColor = '#a3d9ff';
+                    }
+                    
+                    rowDiv.appendChild(cellDiv);
+                });
+                
+                container.appendChild(rowDiv);
+            });
+        }
+
+        function calculateBinomial() {
+            const n = parseInt(document.getElementById('nValue').value);
+            const k = parseInt(document.getElementById('kValue').value);
+            
+            if (k > n) {
+                document.getElementById('result').innerHTML = 
+                    <div class="alert alert-danger">
+                        Error: k cannot be greater than n
+                    </div>
+                ;
+                return;
+            }
+            
+            const coefficient = binomialCoefficient(n, k);
+            
+            document.getElementById('nDisplay').textContent = n;
+            document.getElementById('kDisplay').textContent = k;
+            document.getElementById('coefficient').textContent = coefficient;
+            document.getElementById('explanation').textContent = 
+                Number of ways to choose ${k} item${k !== 1 ? 's' : ''} from ${n};
+            
+            displayPascalsTriangle();
+        }
+
+        // Initialize page
+        document.getElementById('binomialForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateBinomial();
+        });
+
+        // Initial calculation on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateBinomial();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
