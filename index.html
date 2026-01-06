@@ -44,21 +44,22 @@
             font-weight: bold;
         }
         
-        /* Card styling */
+        /* Card styling - more angular */
         .card {
             border: none;
-            border-radius: 15px;
+            border-radius: 8px; /* More angular than 15px */
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.7); /* More transparent */
+            background: rgba(255, 255, 255, 0.7);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            margin-bottom: 20px;
         }
         
         .card:hover {
-            transform: none; /* Remove the upward movement */
+            transform: none;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            background: rgba(255, 255, 255, 0.85); /* Slightly less transparent on hover */
+            background: rgba(255, 255, 255, 0.85);
         }
         
         .card-body {
@@ -76,11 +77,11 @@
             min-height: 70px;
         }
         
-        /* Button styling */
+        /* Button styling - more angular */
         .btn-primary {
             background: linear-gradient(120deg, rgba(154, 75, 255, 0.7), rgba(90, 125, 255, 0.7), rgba(255, 140, 198, 0.7));
             border: none;
-            border-radius: 50px;
+            border-radius: 8px; /* More angular than 50px */
             padding: 10px 25px;
             font-weight: 600;
             transition: all 0.3s;
@@ -156,6 +157,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="machine_learning.html"><i class="fas fa-brain me-1"></i> Machine Learning</a></li>
                     <li class="nav-item"><a class="nav-link" href="binomial.html"><span style="font-family: 'Cambria Math', serif;">∫</span><i class="fas me-1"></i> Calculus</a></li>
                     <li class="nav-item"><a class="nav-link" href="algebra.html"><span style="font-family: 'Cambria Math', serif;">∈</span><i class="fas me-1"></i> Discrete Maths</a></li>
                     <li class="nav-item"><a class="nav-link" href="geometry.html"><i class="fas fa-percent me-1"></i> Probability Theory</a></li>
@@ -166,7 +168,20 @@
 
     <div class="container my-5">
         <h1 class="text-center mb-4">Welcome to Infinite Maths</h1>
+        
+        <!-- First Row: Machine Learning, Calculus, Discrete Maths -->
         <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-brain fa-3x mb-3" style="color: #4169e1;"></i>
+                        </div>
+                        <h5 class="card-title">Machine Learning</h5>
+                        <a href="machine_learning.html" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body text-center">
@@ -189,6 +204,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Second Row: Probability Theory and two placeholders for future sections -->
+        <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body text-center">
@@ -200,7 +219,30 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-plus fa-3x mb-3" style="color: #4169e1;"></i>
+                        </div>
+                        <h5 class="card-title">Coming Soon</h5>
+                        <button class="btn btn-primary" disabled>Explore</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <i class="fas fa-plus fa-3x mb-3" style="color: #4169e1;"></i>
+                        </div>
+                        <h5 class="card-title">Coming Soon</h5>
+                        <button class="btn btn-primary" disabled>Explore</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        
         <div class="row mt-5">
             <div class="col-md-8 mx-auto">
                 <div class="card">
@@ -218,19 +260,19 @@
     </div>
 
     <footer class="text-center mt-5">
-    <div class="container">
-        <div class="mb-3">
-            <i class="fa-solid fa-infinity fa-2x mb-2"></i>
-            <h4>Infinite Maths</h4>
+        <div class="container">
+            <div class="mb-3">
+                <i class="fa-solid fa-infinity fa-2x mb-2"></i>
+                <h4>Infinite Maths</h4>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <a href="https://t.me/Kiara_infinita" class="text-decoration-none d-flex align-items-center" style="color: inherit;">
+                    <span class="me-2">by Kiara Infinita | Contact me in Telegram</span>
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+            </div>
         </div>
-        <div class="d-flex justify-content-center align-items-center">
-            <a href="https://t.me/Kiara_infinita" class="text-decoration-none d-flex align-items-center" style="color: inherit;">
-                <span class="me-2">by Kiara Infinita | Contact me in Telegram</span>
-                <i class="fa-brands fa-telegram"></i>
-            </a>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
