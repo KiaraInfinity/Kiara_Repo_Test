@@ -14,6 +14,7 @@
             background-attachment: fixed;
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.9rem; /* Уменьшаем базовый размер шрифта */
         }
 
         .navbar {
@@ -28,14 +29,15 @@
         }
         
         .infinity-logo {
-            font-size: 1.5rem;
+            font-size: 1.3rem; /* Чуть меньше */
             margin-right: 8px;
             font-weight: bold;
         }
         
+        /* Делаем края острыми (без скругления) */
         .card {
             border: none;
-            border-radius: 8px;
+            border-radius: 0; /* Было 8px, стало 0 */
             background: rgba(255, 255, 255, 0.7);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
@@ -43,52 +45,70 @@
         }
         
         .card-body {
-            padding: 25px;
+            padding: 15px; /* Немного уменьшаем отступы */
         }
         
+        /* Уменьшаем заголовки карточек */
         .card-title {
             color: #5a4ae3;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 1.1rem; /* Чуть меньше */
         }
         
         .btn-primary {
             background: linear-gradient(120deg, rgba(154, 75, 255, 0.7), rgba(90, 125, 255, 0.7), rgba(255, 140, 198, 0.7));
             border: none;
-            border-radius: 8px;
-            padding: 10px 25px;
+            border-radius: 0; /* Острые края у кнопок */
+            padding: 8px 20px; /* Меньше кнопки */
             font-weight: 600;
             color: white;
+            font-size: 0.85rem; /* Меньше текст на кнопках */
         }
         
         footer {
             background: linear-gradient(90deg, #9a4bff, #5a7dff);
             color: white;
-            padding: 30px 0;
+            padding: 20px 0; /* Уменьшаем */
             margin-top: 40px;
         }
         
         .content-container {
-            padding-top: 60px;
-            padding-bottom: 40px;
+            padding-top: 40px; /* Меньше отступ сверху */
+            padding-bottom: 30px;
         }
         
+        /* Уменьшаем главный заголовок */
         .page-header h1 {
             font-weight: 800;
             color: #4a3ce6;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            font-size: 1.8rem; /* Было больше */
+        }
+        
+        /* Уменьшаем подзаголовок */
+        .lead.text-center {
+            font-size: 0.9rem;
         }
         
         .content-section {
-            margin-bottom: 40px;
+            margin-bottom: 30px; /* Меньше отступ между секциями */
         }
         
+        /* Уменьшаем заголовки разделов */
         .content-section h2 {
             color: #5a4ae3;
             border-left: 4px solid #5a4ae3;
-            padding-left: 15px;
-            margin-bottom: 20px;
+            padding-left: 12px;
+            margin-bottom: 15px;
+            font-size: 1.2rem; /* Меньше чем было */
+        }
+        
+        /* Уменьшаем текст в разделах */
+        .content-section p {
+            font-size: 0.9rem; /* Меньше основной текст */
+            line-height: 1.4; /* Более компактное межстрочное расстояние */
         }
         
         .video-container {
@@ -96,9 +116,9 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 0; /* Острые края у видео */
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            margin: 25px 0;
+            margin: 20px 0;
         }
         
         .video-container iframe,
@@ -114,10 +134,25 @@
         .back-link {
             display: inline-flex;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             color: #5a4ae3;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.9rem; /* Меньше кнопка назад */
+        }
+        
+        /* Делаем текст в навигации тоже чуть меньше */
+        .navbar-nav .nav-link {
+            font-size: 0.9rem;
+        }
+        
+        /* Уменьшаем футер */
+        footer h4 {
+            font-size: 1.1rem;
+        }
+        
+        footer .fa-infinity {
+            font-size: 1.5rem;
         }
     </style>
 </head>
