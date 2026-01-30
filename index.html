@@ -25,7 +25,7 @@
         }
         
         .navbar {
-            linear-gradient(120deg, rgba(123, 60, 204, 0.9), rgba(72, 100, 204, 0.9), rgba(204, 112, 158, 0.9));
+            background: linear-gradient(120deg, #2e0d54, #192080, #9e2094);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             padding: 0.4rem 1.5rem;
             min-height: 48px;
@@ -54,7 +54,7 @@
             transition: all 0.3s ease;
             margin-bottom: 20px;
             height: 100%;
-            padding: 0; /* Remove padding from card itself */
+            padding: 0;
         }
         
         .card:hover {
@@ -64,12 +64,12 @@
         }
         
         .card-body {
-            padding: 20px; /* Reduced padding */
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            min-height: 180px; /* Reduced height */
+            min-height: 180px;
         }
         
         .card-title {
@@ -77,27 +77,27 @@
             font-weight: 600;
             margin-bottom: 12px;
             text-align: center;
-            font-size: 1.1rem; /* Smaller title */
+            font-size: 1.1rem;
         }
   
         .btn-primary {
-            background: linear-gradient(120deg, rgba(123, 60, 204, 0.9), rgba(72, 100, 204, 0.9), rgba(204, 112, 158, 0.9));
+            background: linear-gradient(90deg, #9a4bff, #5a7dff);
             border: none;
-            border-radius: 8px;
-            padding: 8px 20px; /* Smaller button */
+            border-radius: 25px; /* Более круглые края */
+            padding: 8px 25px; /* Немного больше padding по бокам */
             font-weight: 500;
             transition: all 0.3s;
             color: white;
-            opacity: 0.9;
             font-family: Arial, sans-serif;
-            font-size: 0.9rem; /* Smaller button text */
+            font-size: 0.9rem;
             margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(154, 75, 255, 0.3);
         }
         
         .btn-primary:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            opacity: 1;
+            box-shadow: 0 6px 15px rgba(154, 75, 255, 0.4);
+            background: linear-gradient(90deg, #8a3bf5, #4a6df5);
         }
         
         /* Footer styling */
@@ -105,7 +105,7 @@
             background: linear-gradient(90deg, #9a4bff, #5a7dff);
             color: white;
             padding: 25px 0;
-            margin-top: 40px;
+            margin-top: 60px; /* Увеличиваем отступ сверху */
             box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
         }
         
@@ -120,10 +120,10 @@
             font-weight: 700;
             color: #25143b;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px; /* Reduced margin */
+            margin-bottom: 50px;
             position: relative;
             display: inline-block;
-            font-size: 2.5rem; /* Smaller font */
+            font-size: 2.5rem;
         }
         
         h1::after {
@@ -132,7 +132,7 @@
             bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px; /* Smaller underline */
+            width: 80px;
             height: 3px;
             background: linear-gradient(90deg, #ff8c8c, #4a3ce6);
             border-radius: 2px;
@@ -141,45 +141,8 @@
         /* Icon styling - Smaller */
         .card-icon {
             color: #4169e1;
-            font-size: 2.5rem; /* Smaller icons */
+            font-size: 2.5rem;
             margin-bottom: 15px;
-        }
-        
-        /* Discover card styling - Centered and wider */
-        .discover-card {
-            background: linear-gradient(120deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9));
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(12px);
-            margin-top: 30px;
-        }
-        
-        .discover-card h3 {
-            color: #291545;
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        .badge {
-            padding: 8px 16px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border-radius: 20px;
-            margin: 0 5px 8px;
-        }
-        
-        .bg-gradient-1 {
-            background: linear-gradient(90deg, #9a4bff, #5a7dff);
-        }
-        
-        .bg-gradient-2 {
-            background: linear-gradient(90deg, #5a7dff, #ff8cc6);
-        }
-        
-        .bg-gradient-3 {
-            background: linear-gradient(90deg, #ff8cc6, #9a4bff);
         }
         
         /* Responsive adjustments */
@@ -198,11 +161,11 @@
             
             h1 {
                 font-size: 2rem;
-                margin-bottom: 30px;
+                margin-bottom: 40px;
             }
             
-            .discover-card {
-                padding: 20px;
+            .btn-primary {
+                padding: 8px 20px;
             }
         }
     </style>
@@ -275,20 +238,6 @@
                         </div>
                         <h5 class="card-title">Probability Theory</h5>
                         <a href="geometry.html" class="btn btn-primary">Explore</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Discover card - centered and wider -->
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-                <div class="discover-card text-center">
-                    <h3 class="mb-3">Discover the Beauty of Mathematics</h3>
-                    <div class="mt-3">
-                        <span class="badge bg-gradient-1 me-2">Interactive</span>
-                        <span class="badge bg-gradient-2 me-2">Educational</span>
-                        <span class="badge bg-gradient-3">Free Tools</span>
                     </div>
                 </div>
             </div>
