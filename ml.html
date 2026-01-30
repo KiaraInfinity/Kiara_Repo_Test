@@ -3,125 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning Topics | Infinite Maths</title>
+    <title>Machine Learning - Infinite Maths</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Inherit all styles from index.html */
         body {
             background: linear-gradient(135deg, 
-                #fbc2eb 0%,   /* Lighter purple */
-                #afdcec 20%,   /* Lighter blue */
-                #ccffff 35%,   /* Even lighter blue */
-                #ffffe0 55%,   /* Lighter yellow */
-                #fad0c4 70%,   /* Lighter peach */
-                #ff9a9e 80%,    /* Lighter pink */
-                #fbc2eb 90%   /* Lighter purple */
-            );
+                #fbc2eb 0%, #afdcec 20%, #ccffff 35%,
+                #ffffe0 55%, #fad0c4 70%, #ff9a9e 80%, #fbc2eb 90%);
             background-attachment: fixed;
             min-height: 100vh;
-            margin: 0;
-            padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Custom styles for the machine learning topics page */
-        .topics-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 30px;
-        }
-
-        .topics-list {
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-        }
-
-        .topics-list h2 {
-            color: #5a4ae3;
-            font-weight: 800;
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-        }
-
-        .topics-list h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #ff8c8c, #4a3ce6);
-            border-radius: 2px;
-        }
-
-        .topics-list p {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #666;
-        }
-
-        /* Тонкие и маленькие ссылки */
-        .topic-link {
-            display: block;
-            padding: 15px 20px;  /* Уменьшено с 20px */
-            margin-bottom: 15px;  /* Уменьшено с 20px */
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;   /* Более угловатые */
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            font-size: 1.1rem;    /* Уменьшен размер шрифта */
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05); /* Более легкая тень */
-            transition: all 0.3s ease;
-            border-left: 4px solid #5a4ae3; /* Более тонкая граница */
-            border-top: 1px solid rgba(90, 74, 227, 0.1);
-            border-right: 1px solid rgba(90, 74, 227, 0.1);
-            border-bottom: 1px solid rgba(90, 74, 227, 0.1);
-        }
-
-        .topic-link:hover {
-            transform: translateX(8px); /* Меньшее смещение */
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1); /* Более легкая тень */
-            color: #5a4ae3;
-        }
-
-        .topic-icon {
-            margin-right: 12px; /* Уменьшено */
-            color: #5a4ae3;
-            width: 24px;        /* Уменьшено */
-            text-align: center;
-            font-size: 1.1rem;  /* Уменьшено */
-        }
-
-        .back-to-ml {
-            display: inline-flex;
-            align-items: center;
-            margin-bottom: 25px;
-            color: #5a4ae3;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-            padding: 8px 15px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-        }
-
-        .back-to-ml:hover {
-            color: #9a4bff;
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Inherit navbar and footer styles from index.html */
         .navbar {
             background: linear-gradient(120deg, #9a4bff, #5a7dff, #ff8cc6);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .infinity-logo {
+            font-size: 1.5rem;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-title {
+            color: #5a4ae3;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(120deg, rgba(154, 75, 255, 0.7), rgba(90, 125, 255, 0.7), rgba(255, 140, 198, 0.7));
+            border: none;
+            border-radius: 8px;
+            padding: 10px 25px;
+            font-weight: 600;
+            color: white;
         }
         
         footer {
@@ -129,7 +66,58 @@
             color: white;
             padding: 30px 0;
             margin-top: 40px;
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-container {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-weight: 800;
+            color: #4a3ce6;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .content-section {
+            margin-bottom: 40px;
+        }
+        
+        .content-section h2 {
+            color: #5a4ae3;
+            border-left: 4px solid #5a4ae3;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            margin: 25px 0;
+        }
+        
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: #5a4ae3;
+            text-decoration: none;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -147,46 +135,75 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="machine_learning.html"><i class="fas fa-brain me-1"></i> Machine Learning</a></li>
-                    <li class="nav-item"><a class="nav-link" href="binomial.html"><span style="font-family: 'Cambria Math', serif;">∫</span><i class="fas me-1"></i> Calculus</a></li>
-                    <li class="nav-item"><a class="nav-link" href="discretemaths.html"><span style="font-family: 'Cambria Math', serif;">∈</span><i class="fas me-1"></i> Discrete Maths</a></li>
+                    <li class="nav-item"><a class="nav-link" href="binomial.html"><span style="font-family: 'Cambria Math', serif;">∫</span> Calculus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="discretemaths.html"><span style="font-family: 'Cambria Math', serif;">∈</span> Discrete Maths</a></li>
                     <li class="nav-item"><a class="nav-link" href="geometry.html"><i class="fas fa-percent me-1"></i> Probability Theory</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container my-5">
-        <div class="topics-container">
-            <!-- Кнопка возврата на главную страницу Machine Learning -->
-            <a href="machine_learning.html" class="back-to-ml">
-                <i class="fas fa-arrow-left me-2"></i> Back to Machine Learning
-            </a>
-            
-            <div class="topics-list">
-                <h2>Machine Learning Topics</h2>
-                <p>Explore fundamental concepts in machine learning through interactive explanations and visualizations.</p>
-                
-                <div class="topics-links">
-                    <!-- Первая ссылка: Matrix Calculus -->
-                    <a href="matrix.html" class="topic-link">
-                        <i class="fas fa-calculator topic-icon"></i>Matrix Calculus
-                    </a>
-                    
-                    <!-- Вторая ссылка: Activation Functions -->
-                    <a href="activation_functions.html" class="topic-link">
-                        <i class="fas fa-chart-line topic-icon"></i>Activation Functions
-                    </a>
-                    
-                    <!-- Третья ссылка: Decision Trees -->
-                    <a href="decision_trees.html" class="topic-link">
-                        <i class="fas fa-sitemap topic-icon"></i>Decision Trees
-                    </a>
+    <div class="container content-container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left me-2"></i> Back to Home
+        </a>
+        
+        <div class="page-header">
+            <h1>Machine Learning</h1>
+            <p class="lead text-center">Exploring algorithms that learn from data to make predictions and decisions</p>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <!-- Introduction Section -->
+                <div class="content-section">
+                    <h2>Introduction to Machine Learning</h2>
+                    <p>Your introduction text here. This is a sample sentence that you can replace with your own content.</p>
                 </div>
                 
-                <div class="mt-5 pt-4 border-top text-center">
-                    <p class="text-muted">
-                        <small>Each topic includes interactive visualizations, mathematical explanations, and code examples.</small>
-                    </p>
+                <!-- Video Section -->
+                <div class="content-section">
+                    <h2>Video Demonstration</h2>
+                    <p>Your video description here.</p>
+                    
+                    <div class="video-container">
+                        <!-- Option 1: Uploaded video file -->
+                        <video controls>
+                            <source src="videos/ml_animation.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Option 2: YouTube embed -->
+                        <!--
+                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                                title="Machine Learning Animation" 
+                                frameborder="0" 
+                                allowfullscreen>
+                        </iframe>
+                        -->
+                    </div>
+                </div>
+                
+                <!-- Code Example Section -->
+                <div class="content-section">
+                    <h2>Code Example</h2>
+                    <p>Your code description here.</p>
+                </div>
+                
+                <!-- Mathematical Foundations -->
+                <div class="content-section">
+                    <h2>Mathematical Foundations</h2>
+                    <p>Your mathematical foundations description here.</p>
+                </div>
+                
+                <!-- Resources Section -->
+                <div class="content-section">
+                    <h2>Additional Resources</h2>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <a href="https://colab.research.google.com/drive/1slCPluME53lYGtVXXMM8EnQxP0CWt9kr" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-external-link-alt me-2"></i> Open Colab Notebook
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -195,8 +212,8 @@
     <footer class="text-center mt-5">
         <div class="container">
             <div class="mb-3">
-                <i class="fas fa-brain fa-2x mb-2"></i> <!-- Изменена иконка на мозг -->
-                <h4>Infinite Maths | Machine Learning</h4>
+                <i class="fa-solid fa-infinity fa-2x mb-2"></i>
+                <h4>Infinite Maths</h4>
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <a href="https://t.me/Kiara_infinita" class="text-decoration-none d-flex align-items-center" style="color: inherit;">
@@ -208,39 +225,5 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Анимация для заголовка
-            const header = document.querySelector('.topics-list h2');
-            header.style.opacity = '0';
-            
-            setTimeout(() => {
-                header.style.transition = 'opacity 1s';
-                header.style.opacity = '1';
-            }, 300);
-            
-            // Анимация для ссылок (поочередное появление)
-            const topicLinks = document.querySelectorAll('.topic-link');
-            topicLinks.forEach((link, index) => {
-                link.style.opacity = '0';
-                link.style.transform = 'translateX(-15px)';
-                setTimeout(() => {
-                    link.style.transition = 'opacity 0.5s, transform 0.5s';
-                    link.style.opacity = '1';
-                    link.style.transform = 'translateX(0)';
-                }, 300 + (index * 150)); // Задержка для каждой ссылки
-            });
-            
-            // Анимация при наведении на кнопку возврата
-            const backButton = document.querySelector('.back-to-ml');
-            backButton.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateX(-5px)';
-            });
-            
-            backButton.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateX(0)';
-            });
-        });
-    </script>
 </body>
 </html>
