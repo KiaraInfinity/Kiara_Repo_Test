@@ -24,8 +24,7 @@
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        /* Enhanced navbar */
+        
         .navbar {
             background: linear-gradient(120deg, #9a4bff, #5a7dff, #ff8cc6);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -44,16 +43,20 @@
             font-weight: bold;
         }
         
-        /* Card styling - more angular */
         .card {
             border: none;
-            border-radius: 8px; /* More angular than 15px */
+            border-radius: 5px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.7);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* уменьшили отступ снизу */
+            
+            /* Уменьшаем размер карточки */
+            max-width: 280px;
+            width: 100%;
+            padding: 12px; /* маленькие внутренние отступы */
         }
         
         .card:hover {
@@ -67,8 +70,8 @@
         }
         
         .card-title {
-            color: #5a4ae3;
-            font-weight: 700;
+            color: #291545;
+            font-weight: 600;
             margin-bottom: 15px;
         }
         
@@ -78,9 +81,9 @@
         }
   
         .btn-primary {
-            background: linear-gradient(120deg, rgba(154, 75, 255, 0.7), rgba(90, 125, 255, 0.7), rgba(255, 140, 198, 0.7));
+            background: background: linear-gradient(120deg, rgba(123, 60, 204, 0.9), rgba(72, 100, 204, 0.9), rgba(204, 112, 158, 0.9));
             border: none;
-            border-radius: 2px;
+            border-radius: 5px;
             padding: 10px 25px;
             font-weight: 500;
             transition: all 0.3s;
@@ -113,7 +116,7 @@
         /* Headings */
         h1 {
             font-weight: 700;
-            color: #0f0917;
+            color: #25143b;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 50px;
             position: relative;
