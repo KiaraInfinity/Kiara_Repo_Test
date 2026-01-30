@@ -149,51 +149,46 @@
         </a>
         
         <div class="page-header">
-            <h1>Machine Learning</h1>
-            <p class="lead text-center">Exploring algorithms that learn from data to make predictions and decisions</p>
+            <h1>Матрички:</h1>
+            <p class="lead text-center">Тут можно посмотреть, как матрицы преобразовывают 2d пространство с координатной сеткой, узнать, что делают собственные векторы - а ниже ссыока на блокнот, где можно попробовать эти преобразования самостотельно :)</p>
         </div>
         
         <div class="card">
             <div class="card-body">
                 <!-- Introduction Section -->
                 <div class="content-section">
-                    <h2>Introduction to Machine Learning</h2>
-                    <p>Your introduction text here. This is a sample sentence that you can replace with your own content.</p>
+                    <h2>Преобразовываем пространство:</h2>
+                    <p></p>
                 </div>
-                
-                <!-- Video Section -->
+
                 <div class="content-section">
-                    <h2>Video Demonstration</h2>
+                    <h2>Вот, как это выглядит:</h2>
                     <p>Your video description here.</p>
                     
                     <div class="video-container">
-                        <!-- Option 1: Uploaded video file -->
                         <video controls>
                             <source src="videos/ml_animation.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        
-                        <!-- Option 2: YouTube embed -->
-                        <!--
-                        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-                                title="Machine Learning Animation" 
-                                frameborder="0" 
-                                allowfullscreen>
-                        </iframe>
-                        -->
                     </div>
                 </div>
-                
-                <!-- Code Example Section -->
+ 
                 <div class="content-section">
-                    <h2>Code Example</h2>
-                    <p>Your code description here.</p>
+                    <h2>Собственные векторы:</h2>
+                    <p>А это уже несколько болоее сложный концепт - собственные значения и собственные векторы. Если вкратце: собственные векторы - это векторы, которые при линейном отображении, заданном матрицей, никуда не поворачиваюся, а лишь растягиваются в $\lambda$ раз. У каждого такого вектора есть своя лямбда, отвечающая за масштаб растяжения - и такие числа называются *собственными значениями*
+
+Посмотрим на матрицу $\begin{pmatrix}2 & 1 \\ 0 & 3\end{pmatrix}\ -$ и то, какое преобразование пространства у неё получается.
+
+Вот здесь, например, один из базисных векторов собственным является - это вектор $(1, 0).$ Собственное значение $\lambda_1,$ отвечающее этому вектору, равно $2\ -$ вектор растягивается в два раза.
+
+А вот вектор $(0, 1)\ -$ уже нет! Видим, что он не просто растягивается, но и меняет направление и поворачивается. Значит, не подходит.
+
+Какой же вектор тогда является вторым собственным? А посмотрим на вектор $(1, 1).$ Меняет ли он направление? Нет! Только увеличивается в три раза. А значит, он и является вторым нужным нам, тогда как собственным значением, ему отвечающим, является $3.$</p>
                 </div>
-                
-                <!-- Mathematical Foundations -->
+
                 <div class="content-section">
-                    <h2>Mathematical Foundations</h2>
-                    <p>Your mathematical foundations description here.</p>
+                    <h2>Собственные векторы:</h2>
+                    <p>*Рассказываем, что такое*</p>
                 </div>
                 
                 <!-- Resources Section -->
