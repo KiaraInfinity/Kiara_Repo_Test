@@ -24,8 +24,9 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        /* Lighter navbar */
         .navbar {
-            background: linear-gradient(120deg, #2e0d54, #192080, #9e2094);
+            background: linear-gradient(120deg, #4a2a7a, #2d3a9e, #b92ead);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             padding: 0.4rem 1.5rem;
             min-height: 48px;
@@ -80,32 +81,34 @@
             font-size: 1.1rem;
         }
   
+        /* Longer buttons with pink gradient */
         .btn-primary {
-            background: linear-gradient(90deg, #9a4bff, #5a7dff);
+            background: linear-gradient(90deg, #9a4bff, #5a7dff, #ff8cc6);
             border: none;
-            border-radius: 25px; /* Более круглые края */
-            padding: 8px 25px; /* Немного больше padding по бокам */
+            border-radius: 25px;
+            padding: 10px 35px; /* Longer button */
             font-weight: 500;
             transition: all 0.3s;
             color: white;
             font-family: Arial, sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(154, 75, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(154, 75, 255, 0.3);
+            min-width: 140px; /* Minimum width for consistency */
         }
         
         .btn-primary:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(154, 75, 255, 0.4);
-            background: linear-gradient(90deg, #8a3bf5, #4a6df5);
+            box-shadow: 0 6px 18px rgba(154, 75, 255, 0.4);
+            background: linear-gradient(90deg, #8a3bf5, #4a6df5, #f07cb6);
         }
         
         /* Footer styling */
         footer {
-            background: linear-gradient(90deg, #9a4bff, #5a7dff);
+            background: linear-gradient(90deg, #9a4bff, #5a7dff, #ff8cc6);
             color: white;
             padding: 25px 0;
-            margin-top: 60px; /* Увеличиваем отступ сверху */
+            margin-top: 60px;
             box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
         }
         
@@ -115,15 +118,15 @@
             padding-bottom: 30px;
         }
         
-        /* Headings - Smaller */
+        /* Smaller and lighter header */
         h1 {
             font-weight: 700;
-            color: #25143b;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 50px;
+            color: #3d2a5e; /* Lighter color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
             position: relative;
             display: inline-block;
-            font-size: 2.5rem;
+            font-size: 2.2rem; /* Smaller font size */
         }
         
         h1::after {
@@ -132,13 +135,13 @@
             bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 70px; /* Smaller underline */
             height: 3px;
             background: linear-gradient(90deg, #ff8c8c, #4a3ce6);
             border-radius: 2px;
         }
         
-        /* Icon styling - Smaller */
+        /* Icon styling */
         .card-icon {
             color: #4169e1;
             font-size: 2.5rem;
@@ -160,12 +163,14 @@
             }
             
             h1 {
-                font-size: 2rem;
-                margin-bottom: 40px;
+                font-size: 1.8rem; /* Even smaller on mobile */
+                margin-bottom: 30px;
             }
             
             .btn-primary {
-                padding: 8px 20px;
+                padding: 10px 30px;
+                font-size: 0.9rem;
+                min-width: 130px;
             }
         }
     </style>
