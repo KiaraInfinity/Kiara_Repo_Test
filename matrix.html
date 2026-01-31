@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning - Infinite Maths</title>
+    <title>Матрички - Infinite Maths</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -26,115 +26,148 @@
     <style>
         body {
             background: linear-gradient(135deg, 
-                #fbc2eb 0%, #afdcec 20%, #ccffff 35%,
-                #ffffe0 55%, #fad0c4 70%, #ff9a9e 80%, #fbc2eb 90%);
+                #fbc2eb 0%, 
+                #afdcec 20%, 
+                #ccffff 35%,
+                #ffffe0 55%, 
+                #fad0c4 70%, 
+                #ff9a9e 80%, 
+                #fbc2eb 90%);
             background-attachment: fixed;
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 0.9rem;
         }
-
+        
+        /* Навбар как на главной странице */
         .navbar {
-            background: linear-gradient(120deg, #9a4bff, #5a7dff, #ff8cc6);
+            background: linear-gradient(120deg, #4a2a7a, #2d3a9e, #b92ead);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 0.4rem 1.5rem;
+            min-height: 48px;
         }
         
         .navbar-brand {
-            font-weight: 700;
+            font-weight: 600;
+            letter-spacing: 1px;
             display: flex;
             align-items: center;
         }
         
         .infinity-logo {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-right: 8px;
             font-weight: bold;
         }
         
-        .card {
-            border: none;
-            border-radius: 0;
-            background: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            margin-bottom: 20px;
-        }
-        
-        .card-body {
-            padding: 15px;
-        }
-        
-        .card-title {
-            color: #5a4ae3;
-            font-weight: 700;
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(120deg, rgba(154, 75, 255, 0.7), rgba(90, 125, 255, 0.7), rgba(255, 140, 198, 0.7));
-            border: none;
-            border-radius: 0;
-            padding: 8px 20px;
-            font-weight: 600;
-            color: white;
-            font-size: 0.85rem;
-        }
-        
-        footer {
-            background: linear-gradient(90deg, #9a4bff, #5a7dff);
-            color: white;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
-        
-        .content-container {
-            padding-top: 40px;
-            padding-bottom: 30px;
-        }
-        
-        .page-header h1 {
-            font-weight: 800;
-            color: #4a3ce6;
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
-        
-        .lead.text-center {
+        .navbar-nav .nav-link {
             font-size: 0.9rem;
         }
         
-        .content-section {
+        /* Заголовок как на главной странице */
+        .page-header h1 {
+            font-weight: 700;
+            color: #3d2a5e;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            font-size: 2.2rem;
+        }
+        
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff8c8c, #4a3ce6);
+            border-radius: 2px;
+        }
+        
+        .page-header .lead {
+            color: #5a4ae3;
+            font-size: 1.1rem;
             margin-bottom: 30px;
         }
         
+        /* Основная карточка */
+        .card {
+            border: none;
+            border-radius: 5px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.85);
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        /* Заголовки разделов */
         .content-section h2 {
-            color: #5a4ae3;
-            border-left: 4px solid #5a4ae3;
-            padding-left: 12px;
+            color: #4a2a7a;
+            font-weight: 600;
+            margin-top: 25px;
             margin-bottom: 15px;
-            font-size: 1.2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(74, 42, 122, 0.2);
+            font-size: 1.4rem;
         }
         
+        /* Основной текст */
         .content-section p {
-            font-size: 0.9rem;
-            line-height: 1.4;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
         }
         
-        /* НОВЫЙ СТИЛЬ ДЛЯ ВИДЕО - УМЕНЬШЕН И ЦЕНТРИРОВАН */
+        /* Ссылка "Назад" */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: #5a4ae3;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #4a2a7a;
+            transform: translateX(-5px);
+        }
+        
+        /* Видео контейнер */
         .video-wrapper {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            margin: 25px 0;
         }
         
         .video-container {
-            width: 70%;
-            max-width: 700px;
-            border-radius: 0;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 5px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .video-container:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
         }
         
         .video-container video {
@@ -143,100 +176,118 @@
             display: block;
         }
         
-        /* Для мобильных устройств делаем видео на всю ширину */
+        /* Подпись под видео */
+        .video-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        /* Пример матрицы */
+        .matrix-example {
+            background: linear-gradient(135deg, rgba(154, 75, 255, 0.05), rgba(90, 125, 255, 0.05));
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #5a4ae3;
+        }
+        
+        /* Математические формулы */
+        .math-formula {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid rgba(90, 74, 227, 0.2);
+            font-size: 1rem;
+        }
+        
+        /* Факты */
+        .fact-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ff8cc6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .fact-item strong {
+            color: #4a2a7a;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* Кнопка Colab */
+        .colab-btn {
+            background: linear-gradient(90deg, #9a4bff, #5a7dff, #ff8cc6);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 40px;
+            font-weight: 500;
+            transition: all 0.3s;
+            color: white;
+            font-size: 1rem;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(154, 75, 255, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .colab-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(154, 75, 255, 0.4);
+            background: linear-gradient(90deg, #8a3bf5, #4a6df5, #f07cb6);
+            color: white;
+        }
+        
+        /* Футер */
+        footer {
+            background: linear-gradient(90deg, #9a4bff, #5a7dff, #ff8cc6);
+            color: white;
+            padding: 25px 0;
+            margin-top: 60px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer h4 {
+            font-size: 1.2rem;
+        }
+        
+        /* Адаптивность */
         @media (max-width: 768px) {
             .video-container {
                 width: 95%;
             }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card-body {
+                padding: 20px;
+            }
+            
+            .content-section h2 {
+                font-size: 1.2rem;
+            }
         }
         
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            margin-bottom: 20px;
-            color: #5a4ae3;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .navbar-nav .nav-link {
-            font-size: 0.9rem;
-        }
-        
-        footer h4 {
-            font-size: 1.1rem;
-        }
-        
-        footer .fa-infinity {
-            font-size: 1.5rem;
-        }
-        
-        /* Стили для математических формул */
-        .math-formula {
-            background-color: rgba(255, 255, 255, 0.5);
-            padding: 15px;
-            margin: 15px 0;
-            border-left: 3px solid #5a4ae3;
-            font-size: 1rem;
-        }
-        
+        /* MathJax стили */
         mjx-container {
             display: inline-block;
-            margin: 0 2px;
+            margin: 0 3px;
             vertical-align: middle;
         }
         
-        /* Стили для матриц */
-        .matrix-example {
-            background-color: rgba(90, 74, 227, 0.1);
-            padding: 15px;
-            border: 1px solid rgba(90, 74, 227, 0.2);
-            margin: 15px 0;
-        }
-        
-        /* Стили для фактов */
-        .fact-item {
-            background-color: rgba(255, 255, 255, 0.4);
-            padding: 12px;
-            border-left: 3px solid #ff8cc6;
-            margin-bottom: 15px;
-        }
-        
-        .fact-item strong {
-            color: #5a4ae3;
-        }
-        
-        .small.text-muted {
-            font-size: 0.8rem;
-            color: #6c757d;
-            max-width: 700px;
-            margin: 10px auto;
+        .MJXc-display {
+            margin: 1em 0;
             text-align: center;
-            line-height: 1.3;
-        }
-        
-        .content-section h3 {
-            color: #5a4ae3;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            border-bottom: 2px solid rgba(90, 74, 227, 0.2);
-            padding-bottom: 5px;
-        }
-        
-        /* Сообщение, если видео не загрузилось */
-        .video-error {
-            background-color: rgba(255, 200, 200, 0.2);
-            border: 1px solid #ff6b6b;
-            padding: 15px;
-            margin: 15px 0;
-            text-align: center;
-        }
-        
-        .video-error a {
-            color: #5a4ae3;
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -262,75 +313,62 @@
         </div>
     </nav>
 
-    <div class="container content-container">
+    <div class="container content-container" style="padding-top: 50px; padding-bottom: 50px;">
         <a href="index.html" class="back-link">
-            <i class="fas fa-arrow-left me-2"></i> Back to Home
+            <i class="fas fa-arrow-left me-2"></i> Назад на главную
         </a>
         
-        <div class="page-header">
-            <h1>Матрички:</h1>
-            <p class="lead text-center">Линейные преобразования и собственные векторы</p>
+        <div class="page-header text-center">
+            <h1>Матрички</h1>
+            <p class="lead">Линейные преобразования и собственные векторы</p>
         </div>
         
         <div class="card">
             <div class="card-body">
-                <!-- Introduction Section -->
+                <!-- Введение -->
                 <div class="content-section">
-                    <h2>Введение в линейные преобразования</h2>
-                    <p>Тут можно посмотреть, как матрицы преобразовывают 2D пространство с координатной сеткой, узнать, что делают собственные векторы - а ниже ссылка на блокнот, где можно попробовать эти преобразования самостоятельно :)</p>
+                    <p>Здесь можно посмотреть, как матрицы преобразовывают 2D пространство с координатной сеткой, узнать, что делают собственные векторы - а ниже ссылка на блокнот, где можно попробовать эти преобразования самостоятельно :)</p>
                 </div>
 
+                <!-- Первое видео -->
                 <div class="content-section">
                     <h2>Пример преобразования матрицей</h2>
                     <p>Посмотрим, как матрица преобразует координатную сетку в двумерном пространстве:</p>
                     
                     <div class="video-wrapper">
                         <div class="video-container">
-                            <!-- ВАЖНО: Используем правильный путь к видео -->
-                            <video controls poster="https://via.placeholder.com/700x394/5a4ae3/ffffff?text=Loading+Video..." preload="metadata">
-                                <!-- Пробуем несколько вариантов пути -->
+                            <video controls>
                                 <source src="Matrix_1.mp4" type="video/mp4">
-                                <source src="https://raw.githubusercontent.com/KiaraInfinity/Kiara_Repo_Test/main/Matrix_1.mp4" type="video/mp4">
-                                <source src="https://github.com/KiaraInfinity/Kiara_Repo_Test/raw/main/Matrix_1.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
+                                Ваш браузер не поддерживает видео.
                             </video>
                         </div>
                     </div>
-                    
-                    <!-- Сообщение если видео не загрузилось -->
-                    <div id="video-error-1" class="video-error" style="display: none;">
-                        <p><strong>Видео не загружается?</strong> Попробуйте:</p>
-                        <ol>
-                            <li>Убедитесь, что файл Matrix_1.mp4 находится в той же папке, что и этот HTML файл</li>
-                            <li>Или скачайте видео напрямую: <a href="https://github.com/KiaraInfinity/Kiara_Repo_Test/raw/main/Matrix_1.mp4" target="_blank">Matrix_1.mp4</a></li>
-                            <li>Проверьте название файла (регистр имеет значение!)</li>
-                        </ol>
-                    </div>
+                    <p class="video-caption">Матричное преобразование пространства</p>
                 </div>
 
+                <!-- Собственные векторы -->
                 <div class="content-section">
                     <h2>Собственные векторы и собственные значения</h2>
                     <p>А это уже несколько более сложный концепт - собственные значения и собственные векторы. Если вкратце: собственные векторы - это векторы, которые при линейном отображении, заданном матрицей, никуда не поворачиваются, а лишь растягиваются в $\lambda$ раз. У каждого такого вектора есть своя $\lambda$, отвечающая за масштаб растяжения - и такие числа называются <strong>собственными значениями</strong>.</p>
                     
                     <div class="video-wrapper">
                         <div class="video-container">
-                            <!-- Второе видео (если оно существует) -->
-                            <video controls poster="https://via.placeholder.com/700x394/5a4ae3/ffffff?text=Loading+Video..." preload="metadata">
-                                <source src="Matrix_1.mp4" type="video/mp4">
-                                <source src="https://raw.githubusercontent.com/KiaraInfinity/Kiara_Repo_Test/main/Matrix_1.mp4" type="video/mp4">
-                                <source src="https://github.com/KiaraInfinity/Kiara_Repo_Test/raw/main/Matrix_1.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
+                            <video controls>
+                                <!-- Вставлено новое видео -->
+                                <source src="eigenvectors_1.mp4" type="video/mp4">
+                                <source src="https://raw.githubusercontent.com/KiaraInfinity/Kiara_Repo_Test/main/eigenvectors_1.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
                             </video>
                         </div>
                     </div>
                     
-                    <p class="text-center small text-muted mt-2">
+                    <p class="text-center small text-muted mt-2" style="max-width: 800px; margin: 15px auto; font-style: italic;">
                         Интерактивная анимашка для того, чтобы посмотреть и вспомнить, как матрицы преобразовывают пространства 
                         (а ещё можно попробовать ввести вырожденную матрицу или вообще нулевую и посмотреть, что будет :). 
                         Попробуйте матрицу $\begin{pmatrix}3 & -1 \\ 1 & -2\end{pmatrix}$!
                     </p>
                     
-                    <div class="matrix-example mt-3">
+                    <div class="matrix-example">
                         <p><strong>Пример анализа матрицы:</strong></p>
                         <p>Посмотрим на матрицу $\begin{pmatrix}2 & 1 \\ 0 & 3\end{pmatrix}$ - и то, какое преобразование пространства у неё получается.</p>
                         
@@ -340,22 +378,22 @@
                         
                         <p>Какой же вектор тогда является вторым собственным? А посмотрим на вектор $(1, 1)$. Меняет ли он направление? Нет! Только увеличивается в три раза. А значит, он и является вторым нужным нам, тогда как собственным значением, ему отвечающим, является $3$.</p>
                         
-                        <div class="math-formula mt-3">
+                        <div class="math-formula">
                             <p>$\implies$ Таким образом видим, что собственными векторами необязательно являются базисы (ещё про направление растяжения бы рассказать)</p>
                         </div>
                     </div>
                     
-                    <div class="content-section mt-4">
+                    <div class="content-section">
                         <h3>Интересные факты:</h3>
                         
-                        <div class="fact-item mb-3">
+                        <div class="fact-item">
                             <p><strong>Факт 1:</strong> Если матрица симметрична - собственные векторы будут друг другу <em>ортогональны</em>.</p>
                             <div class="math-formula">
                                 <p>$\rightarrow$ Вот, например, собственные векторы матрицы $\begin{pmatrix}2 & 1 \\ 1 & 2\end{pmatrix}$. Попробуйте угадать, какие - и какие у них собственные $\lambda$ лямбды?</p>
                             </div>
                         </div>
                         
-                        <div class="fact-item mb-3">
+                        <div class="fact-item">
                             <p><strong>Факт 2:</strong> Для того, чтобы собственными векторами были базисные, матрица преобразования должна быть <em>диагональной</em>.</p>
                             <div class="math-formula">
                                 <p>Диагональная матрица: $\begin{pmatrix}a & 0 \\ 0 & b\end{pmatrix}$ имеет собственные векторы $(1,0)$ и $(0,1)$ с собственными значениями $a$ и $b$ соответственно.</p>
@@ -371,20 +409,14 @@
                     </div>
                 </div>
                 
-                <!-- Resources Section -->
-                <div class="content-section">
-                    <h2>Дополнительные материалы</h2>
-                    <div class="d-flex flex-wrap gap-2 mt-3">
-                        <a href="https://colab.research.google.com/drive/1slCPluME53lYGtVXXMM8EnQxP0CWt9kr" class="btn btn-primary" target="_blank">
-                            <i class="fas fa-external-link-alt me-2"></i> Open Colab Notebook
-                        </a>
-                        <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors" class="btn btn-primary" target="_blank">
-                            <i class="fas fa-book me-2"></i> Wikipedia Article
-                        </a>
-                        <a href="https://github.com/KiaraInfinity/Kiara_Repo_Test/raw/main/Matrix_1.mp4" class="btn btn-primary" target="_blank">
-                            <i class="fas fa-download me-2"></i> Download Video
-                        </a>
-                    </div>
+                <!-- Ссылка на Colab -->
+                <div class="content-section text-center">
+                    <h2>Попробуйте сами!</h2>
+                    <p>Используйте наш Colab блокнот для экспериментов с матричными преобразованиями:</p>
+                    
+                    <a href="https://colab.research.google.com/drive/1slCPluME53lYGtVXXMM8EnQxP0CWt9kr" class="colab-btn" target="_blank">
+                        <i class="fas fa-external-link-alt me-2"></i> Открыть Colab Notebook
+                    </a>
                 </div>
             </div>
         </div>
@@ -408,39 +440,32 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Проверка загрузки видео
+        // Анимация для карточек
         document.addEventListener('DOMContentLoaded', function() {
-            const videos = document.querySelectorAll('video');
+            const card = document.querySelector('.card');
             
-            videos.forEach((video, index) => {
-                video.addEventListener('error', function() {
-                    console.log(`Видео ${index + 1} не загрузилось`);
-                    const errorDiv = document.getElementById(`video-error-${index + 1}`);
-                    if (errorDiv) {
-                        errorDiv.style.display = 'block';
-                    }
-                    
-                    // Показываем альтернативное сообщение
-                    const container = video.parentElement;
-                    const altMsg = document.createElement('div');
-                    altMsg.className = 'video-error';
-                    altMsg.innerHTML = `
-                        <p><strong>Видео не загружается!</strong></p>
-                        <p>Попробуйте:</p>
-                        <ul>
-                            <li>Скачать видео напрямую: <a href="https://github.com/KiaraInfinity/Kiara_Repo_Test/raw/main/Matrix_1.mp4" target="_blank">Скачать Matrix_1.mp4</a></li>
-                            <li>Убедиться, что файл находится в той же папке, что и HTML-страница</li>
-                        </ul>
-                    `;
-                    container.parentElement.appendChild(altMsg);
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-3px)';
+                card.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
+                card.style.background = 'rgba(255, 255, 255, 0.85)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.1)';
+                card.style.background = 'rgba(255, 255, 255, 0.7)';
+            });
+            
+            // Анимация для видео
+            const videos = document.querySelectorAll('.video-container');
+            videos.forEach(video => {
+                video.addEventListener('mouseenter', () => {
+                    video.style.transform = 'scale(1.01)';
                 });
                 
-                // Проверяем, загрузилось ли видео через 5 секунд
-                setTimeout(() => {
-                    if (video.readyState === 0) { // HAVE_NOTHING
-                        video.dispatchEvent(new Event('error'));
-                    }
-                }, 5000);
+                video.addEventListener('mouseleave', () => {
+                    video.style.transform = 'scale(1)';
+                });
             });
         });
     </script>
