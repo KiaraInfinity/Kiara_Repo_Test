@@ -6,6 +6,23 @@
     <title>Machine Learning - Infinite Maths</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- MathJax для отображения LaTeX -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                packages: {'[+]': ['ams']}
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    
     <style>
         body {
             background: linear-gradient(135deg, 
@@ -14,7 +31,7 @@
             background-attachment: fixed;
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 0.9rem; /* Уменьшаем базовый размер шрифта */
+            font-size: 0.9rem;
         }
 
         .navbar {
@@ -29,15 +46,14 @@
         }
         
         .infinity-logo {
-            font-size: 1.3rem; /* Чуть меньше */
+            font-size: 1.3rem;
             margin-right: 8px;
             font-weight: bold;
         }
         
-        /* Делаем края острыми (без скругления) */
         .card {
             border: none;
-            border-radius: 0; /* Было 8px, стало 0 */
+            border-radius: 0;
             background: rgba(255, 255, 255, 0.7);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
@@ -45,90 +61,93 @@
         }
         
         .card-body {
-            padding: 15px; /* Немного уменьшаем отступы */
+            padding: 15px;
         }
         
-        /* Уменьшаем заголовки карточек */
         .card-title {
             color: #5a4ae3;
             font-weight: 700;
             margin-bottom: 12px;
-            font-size: 1.1rem; /* Чуть меньше */
+            font-size: 1.1rem;
         }
         
         .btn-primary {
             background: linear-gradient(120deg, rgba(154, 75, 255, 0.7), rgba(90, 125, 255, 0.7), rgba(255, 140, 198, 0.7));
             border: none;
-            border-radius: 0; /* Острые края у кнопок */
-            padding: 8px 20px; /* Меньше кнопки */
+            border-radius: 0;
+            padding: 8px 20px;
             font-weight: 600;
             color: white;
-            font-size: 0.85rem; /* Меньше текст на кнопках */
+            font-size: 0.85rem;
         }
         
         footer {
             background: linear-gradient(90deg, #9a4bff, #5a7dff);
             color: white;
-            padding: 20px 0; /* Уменьшаем */
+            padding: 20px 0;
             margin-top: 40px;
         }
         
         .content-container {
-            padding-top: 40px; /* Меньше отступ сверху */
+            padding-top: 40px;
             padding-bottom: 30px;
         }
         
-        /* Уменьшаем главный заголовок */
         .page-header h1 {
             font-weight: 800;
             color: #4a3ce6;
             text-align: center;
             margin-bottom: 15px;
-            font-size: 1.8rem; /* Было больше */
+            font-size: 1.8rem;
         }
         
-        /* Уменьшаем подзаголовок */
         .lead.text-center {
             font-size: 0.9rem;
         }
         
         .content-section {
-            margin-bottom: 30px; /* Меньше отступ между секциями */
+            margin-bottom: 30px;
         }
         
-        /* Уменьшаем заголовки разделов */
         .content-section h2 {
             color: #5a4ae3;
             border-left: 4px solid #5a4ae3;
             padding-left: 12px;
             margin-bottom: 15px;
-            font-size: 1.2rem; /* Меньше чем было */
+            font-size: 1.2rem;
         }
         
-        /* Уменьшаем текст в разделах */
         .content-section p {
-            font-size: 0.9rem; /* Меньше основной текст */
-            line-height: 1.4; /* Более компактное межстрочное расстояние */
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
         
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 0; /* Острые края у видео */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        /* НОВЫЙ СТИЛЬ ДЛЯ ВИДЕО - УМЕНЬШЕН И ЦЕНТРИРОВАН */
+        .video-wrapper {
+            display: flex;
+            justify-content: center;
             margin: 20px 0;
         }
         
-        .video-container iframe,
+        .video-container {
+            width: 70%;
+            max-width: 700px;
+            border-radius: 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
         .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            border: none;
+            height: auto;
+            display: block;
+        }
+        
+        /* Для мобильных устройств делаем видео на всю ширину */
+        @media (max-width: 768px) {
+            .video-container {
+                width: 95%;
+            }
         }
         
         .back-link {
@@ -138,21 +157,42 @@
             color: #5a4ae3;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem; /* Меньше кнопка назад */
+            font-size: 0.9rem;
         }
         
-        /* Делаем текст в навигации тоже чуть меньше */
         .navbar-nav .nav-link {
             font-size: 0.9rem;
         }
         
-        /* Уменьшаем футер */
         footer h4 {
             font-size: 1.1rem;
         }
         
         footer .fa-infinity {
             font-size: 1.5rem;
+        }
+        
+        /* Стили для математических формул */
+        .math-formula {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 3px solid #5a4ae3;
+            font-size: 1rem;
+        }
+        
+        mjx-container {
+            display: inline-block;
+            margin: 0 2px;
+            vertical-align: middle;
+        }
+        
+        /* Стили для матриц */
+        .matrix-example {
+            background-color: rgba(90, 74, 227, 0.1);
+            padding: 15px;
+            border: 1px solid rgba(90, 74, 227, 0.2);
+            margin: 15px 0;
         }
     </style>
 </head>
@@ -185,53 +225,75 @@
         
         <div class="page-header">
             <h1>Матрички:</h1>
-            <p class="lead text-center"></p>
+            <p class="lead text-center">Линейные преобразования и собственные векторы</p>
         </div>
         
         <div class="card">
             <div class="card-body">
                 <!-- Introduction Section -->
                 <div class="content-section">
-                    <h2></h2>
-                    <p>Тут можно посмотреть, как матрицы преобразовывают 2d пространство с координатной сеткой, узнать, что делают собственные векторы - а ниже ссыока на блокнот, где можно попробовать эти преобразования самостотельно :)</p>
+                    <h2>Введение в линейные преобразования</h2>
+                    <p>Тут можно посмотреть, как матрицы преобразовывают 2D пространство с координатной сеткой, узнать, что делают собственные векторы - а ниже ссылка на блокнот, где можно попробовать эти преобразования самостоятельно :)</p>
                 </div>
 
                 <div class="content-section">
-                    <h2>Вот, как это выглядит:</h2>
-                    <p>Your video description here.</p>
+                    <h2>Пример преобразования матриц:</h2>
+                    <p>Посмотрим, как матрица преобразует координатную сетку в двумерном пространстве:</p>
                     
-                    <div class="video-container">
-                        <video controls>
-                            <source src="videos/matrix_1.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                    <div class="video-wrapper">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="videos/Matrix_1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
                     </div>
                 </div>
- 
+
                 <div class="content-section">
-                    <h2>Собственные векторы:</h2>
-                    <p>А это уже несколько болоее сложный концепт - собственные значения и собственные векторы. Если вкратце: собственные векторы - это векторы, которые при линейном отображении, заданном матрицей, никуда не поворачиваюся, а лишь растягиваются в $\lambda$ раз. У каждого такого вектора есть своя лямбда, отвечающая за масштаб растяжения - и такие числа называются *собственными значениями*
-
-Посмотрим на матрицу $\begin{pmatrix}2 & 1 \\ 0 & 3\end{pmatrix}\ -$ и то, какое преобразование пространства у неё получается.
-
-Вот здесь, например, один из базисных векторов собственным является - это вектор $(1, 0).$ Собственное значение $\lambda_1,$ отвечающее этому вектору, равно $2\ -$ вектор растягивается в два раза.
-
-А вот вектор $(0, 1)\ -$ уже нет! Видим, что он не просто растягивается, но и меняет направление и поворачивается. Значит, не подходит.
-
-Какой же вектор тогда является вторым собственным? А посмотрим на вектор $(1, 1).$ Меняет ли он направление? Нет! Только увеличивается в три раза. А значит, он и является вторым нужным нам, тогда как собственным значением, ему отвечающим, является $3.$</p>
+                    <h2>Собственные векторы и собственные значения</h2>
+                    <p>А это уже несколько более сложный концепт - собственные значения и собственные векторы. Если вкратце: собственные векторы - это векторы, которые при линейном отображении, заданном матрицей, никуда не поворачиваются, а лишь растягиваются в $\lambda$ раз. У каждого такого вектора есть своя $\lambda$, отвечающая за масштаб растяжения - и такие числа называются <strong>собственными значениями</strong>.</p>
+                    
+                    <div class="matrix-example">
+                        <p>Посмотрим на матрицу:</p>
+                        <p>$$A = \begin{pmatrix}2 & 1 \\ 0 & 3\end{pmatrix}$$</p>
+                        <p>и то, какое преобразование пространства у неё получается.</p>
+                    </div>
+                    
+                    <p>Вот здесь, например, один из базисных векторов собственным является - это вектор $(1, 0)$. Собственное значение $\lambda_1$, отвечающее этому вектору, равно $2$ - вектор растягивается в два раза.</p>
+                    
+                    <p>А вот вектор $(0, 1)$ - уже нет! Видим, что он не просто растягивается, но и меняет направление и поворачивается. Значит, не подходит.</p>
+                    
+                    <p>Какой же вектор тогда является вторым собственным? А посмотрим на вектор $(1, 1)$. Меняет ли он направление? Нет! Только увеличивается в три раза. А значит, он и является вторым нужным нам, тогда как собственным значением, ему отвечающим, является $3$.</p>
+                    
+                    <div class="math-formula">
+                        <p><strong>Математическая запись:</strong></p>
+                        <p>Для собственного вектора $v$ и собственного значения $\lambda$ выполняется:</p>
+                        <p>$$Av = \lambda v$$</p>
+                        <p>где $A$ - наша матрица преобразования.</p>
+                    </div>
                 </div>
-
+                
                 <div class="content-section">
-                    <h2>Собственные векторы:</h2>
-                    <p>*Рассказываем, что такое*</p>
+                    <h2>Как найти собственные векторы?</h2>
+                    <p>Собственные векторы находятся из уравнения:</p>
+                    <p>$$\det(A - \lambda I) = 0$$</p>
+                    <p>где $I$ - единичная матрица. Это уравнение называется характеристическим уравнением матрицы.</p>
+                    
+                    <p>Для нашей матрицы $A = \begin{pmatrix}2 & 1 \\ 0 & 3\end{pmatrix}$:</p>
+                    <p>$$\det\begin{pmatrix}2-\lambda & 1 \\ 0 & 3-\lambda\end{pmatrix} = (2-\lambda)(3-\lambda) = 0$$</p>
+                    <p>Отсюда $\lambda_1 = 2$, $\lambda_2 = 3$.</p>
                 </div>
                 
                 <!-- Resources Section -->
                 <div class="content-section">
-                    <h2>Additional Resources</h2>
+                    <h2>Дополнительные материалы</h2>
                     <div class="d-flex flex-wrap gap-2 mt-3">
                         <a href="https://colab.research.google.com/drive/1slCPluME53lYGtVXXMM8EnQxP0CWt9kr" class="btn btn-primary" target="_blank">
                             <i class="fas fa-external-link-alt me-2"></i> Open Colab Notebook
+                        </a>
+                        <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors" class="btn btn-primary" target="_blank">
+                            <i class="fas fa-book me-2"></i> Wikipedia Article
                         </a>
                     </div>
                 </div>
