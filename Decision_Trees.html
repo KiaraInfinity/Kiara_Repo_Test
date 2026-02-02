@@ -1,1 +1,468 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Матрички - Infinite Maths</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- MathJax для отображения LaTeX -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                packages: {'[+]': ['ams']}
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, 
+                #fbc2eb 0%, 
+                #afdcec 20%, 
+                #ccffff 35%,
+                #ffffe0 55%, 
+                #fad0c4 70%, 
+                #ff9a9e 80%, 
+                #fbc2eb 90%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Навбар как на главной странице */
+        .navbar {
+            background: linear-gradient(120deg, #4a2a7a, #2d3a9e, #b92ead);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 0.4rem 1.5rem;
+            min-height: 48px;
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .infinity-logo {
+            font-size: 1.4rem;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        
+        .navbar-nav .nav-link {
+            font-size: 0.9rem;
+        }
+        
+        /* Заголовок как на главной странице */
+        .page-header h1 {
+            font-weight: 700;
+            color: #3d2a5e;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            font-size: 2.2rem;
+        }
+        
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff8c8c, #4a3ce6);
+            border-radius: 2px;
+        }
+        
+        .page-header .lead {
+            color: #5a4ae3;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Основная карточка */
+        .card {
+            border: none;
+            border-radius: 5px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.85);
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        /* Заголовки разделов */
+        .content-section h2 {
+            color: #4a2a7a;
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(74, 42, 122, 0.2);
+            font-size: 1.4rem;
+        }
+        
+        /* Основной текст */
+        .content-section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        /* Ссылка "Назад" */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: #5a4ae3;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #4a2a7a;
+            transform: translateX(-5px);
+        }
+        
+        /* Видео контейнер */
+        .video-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
+        }
+        
+        .video-container {
+            width: 80%;
+            max-width: 800px;
+            border-radius: 5px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .video-container:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Подпись под видео */
+        .video-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        /* Пример матрицы */
+        .matrix-example {
+            background: linear-gradient(135deg, rgba(154, 75, 255, 0.05), rgba(90, 125, 255, 0.05));
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #5a4ae3;
+        }
+        
+        /* Математические формулы */
+        .math-formula {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid rgba(90, 74, 227, 0.2);
+            font-size: 1rem;
+        }
+        
+        /* Факты */
+        .fact-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ff8cc6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .fact-item strong {
+            color: #4a2a7a;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* Кнопка Colab */
+        .colab-btn {
+            background: linear-gradient(90deg, #9a4bff, #5a7dff, #ff8cc6);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 40px;
+            font-weight: 500;
+            transition: all 0.3s;
+            color: white;
+            font-size: 1rem;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(154, 75, 255, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .colab-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(154, 75, 255, 0.4);
+            background: linear-gradient(90deg, #8a3bf5, #4a6df5, #f07cb6);
+            color: white;
+        }
+        
+        /* Футер */
+        footer {
+            background: linear-gradient(90deg, #9a4bff, #5a7dff, #ff8cc6);
+            color: white;
+            padding: 25px 0;
+            margin-top: 60px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer h4 {
+            font-size: 1.2rem;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .video-container {
+                width: 95%;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card-body {
+                padding: 20px;
+            }
+            
+            .content-section h2 {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* MathJax стили */
+        mjx-container {
+            display: inline-block;
+            margin: 0 3px;
+            vertical-align: middle;
+        }
+        
+        .MJXc-display {
+            margin: 1em 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="infinity-logo">∞</span>
+                <span>Infinite Maths</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="machine_learning.html"><i class="fas fa-brain me-1"></i> Machine Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="binomial.html"><span style="font-family: 'Cambria Math', serif;">∫</span> Calculus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="discretemaths.html"><span style="font-family: 'Cambria Math', serif;">∈</span> Discrete Maths</a></li>
+                    <li class="nav-item"><a class="nav-link" href="geometry.html"><i class="fas fa-percent me-1"></i> Probability Theory</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container content-container" style="padding-top: 50px; padding-bottom: 50px;">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left me-2"></i> Назад на главную
+        </a>
+        
+        <div class="page-header text-center">
+            <h1>Решающие деревья:</h1>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+
+                <div class="content-section">
+                    <h2>Как показать работу решающих деревьев на плоскости:</h2>
+                    <p>По сути, решения в дереаьях принимаются так: если у нас есть пороговые значения (предикаты), то решения принимаются так: (значение для класса) < $x$ - наш элемент отправляется в один класс, если наоборот - в другой. Иногда этапов разбиения может быть несколько: если мы попали в одну ветку, нужно сравнить уже следующий аттрибут класса со следующим пороговым значением: например, y.</p>
+                    
+                    <div class="video-wrapper">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="Matrix_1.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    <p class="video-caption">Матричное преобразование пространства</p>
+                </div>
+
+                <!-- Собственные векторы -->
+                <div class="content-section">
+                    <h2>Собственные векторы и собственные значения</h2>
+                    <p>А это уже несколько более сложный концепт - собственные значения и собственные векторы. Если вкратце: собственные векторы - это векторы, которые при линейном отображении, заданном матрицей, никуда не поворачиваются, а лишь растягиваются в $\lambda$ раз. У каждого такого вектора есть своя $\lambda$, отвечающая за масштаб растяжения - и такие числа называются <strong>собственными значениями</strong>.</p>
+                    
+                    <div class="video-wrapper">
+                        <div class="video-container">
+                            <video controls>
+                                <!-- Вставлено новое видео -->
+                                <source src="eigenvectors_1.mp4" type="video/mp4">
+                                <source src="https://raw.githubusercontent.com/KiaraInfinity/Kiara_Repo_Test/main/eigenvectors_1.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
+                    </div>
+                    
+                    <p class="text-center small text-muted mt-2" style="max-width: 800px; margin: 15px auto; font-style: italic;">
+                        Интерактивная анимашка для того, чтобы посмотреть и вспомнить, как матрицы преобразовывают пространства 
+                        (а ещё можно попробовать ввести вырожденную матрицу или вообще нулевую и посмотреть, что будет :). 
+                        Попробуйте матрицу $\begin{pmatrix}3 & -1 \\ 1 & -2\end{pmatrix}$!
+                    </p>
+                    
+                    <div class="matrix-example">
+                        <p><strong>Пример анализа матрицы:</strong></p>
+                        <p>Посмотрим на матрицу $\begin{pmatrix}2 & 1 \\ 0 & 3\end{pmatrix}$ - и то, какое преобразование пространства у неё получается.</p>
+                        
+                        <p>Вот здесь, например, один из базисных векторов собственным является - это вектор $(1, 0)$. Собственное значение $\lambda_1$, отвечающее этому вектору, равно $2$ - вектор растягивается в два раза.</p>
+                        
+                        <p>А вот вектор $(0, 1)$ - уже нет! Видим, что он не просто растягивается, но и меняет направление и поворачивается. Значит, не подходит.</p>
+                        
+                        <p>Какой же вектор тогда является вторым собственным? А посмотрим на вектор $(1, 1)$. Меняет ли он направление? Нет! Только увеличивается в три раза. А значит, он и является вторым нужным нам, тогда как собственным значением, ему отвечающим, является $3$.</p>
+                        
+                        <div class="math-formula">
+                            <p>$\implies$ Таким образом видим, что собственными векторами необязательно являются базисы (ещё про направление растяжения бы рассказать)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <h3>Интересные факты:</h3>
+                        
+                        <div class="fact-item">
+                            <p><strong>Факт 1:</strong> Если матрица симметрична - собственные векторы будут друг другу <em>ортогональны</em>.</p>
+                            <div class="math-formula">
+                                <p>$\rightarrow$ Вот, например, собственные векторы матрицы $\begin{pmatrix}2 & 1 \\ 1 & 2\end{pmatrix}$. Попробуйте угадать, какие - и какие у них собственные $\lambda$ лямбды?</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fact-item">
+                            <p><strong>Факт 2:</strong> Для того, чтобы собственными векторами были базисные, матрица преобразования должна быть <em>диагональной</em>.</p>
+                            <div class="math-formula">
+                                <p>Диагональная матрица: $\begin{pmatrix}a & 0 \\ 0 & b\end{pmatrix}$ имеет собственные векторы $(1,0)$ и $(0,1)$ с собственными значениями $a$ и $b$ соответственно.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fact-item">
+                            <p><strong>Факт 3:</strong> Собственные векторы показывают направления, которые "выживают" при преобразовании без поворота.</p>
+                            <div class="math-formula">
+                                <p>Их можно найти из уравнения: $\det(A - \lambda I) = 0$, где $I$ - единичная матрица.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ссылка на Colab -->
+                <div class="content-section text-center">
+                    <h2>Попробуйте сами!</h2>
+                    <p>Используйте наш Colab блокнот для экспериментов с матричными преобразованиями:</p>
+                    
+                    <a href="https://colab.research.google.com/drive/1slCPluME53lYGtVXXMM8EnQxP0CWt9kr" class="colab-btn" target="_blank">
+                        <i class="fas fa-external-link-alt me-2"></i> Открыть Colab Notebook
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5">
+        <div class="container">
+            <div class="mb-3">
+                <i class="fa-solid fa-infinity fa-2x mb-2"></i>
+                <h4>Infinite Maths</h4>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <a href="https://t.me/Kiara_infinita" class="text-decoration-none d-flex align-items-center" style="color: inherit;">
+                    <span class="me-2">by Kiara Infinita | Contact me in Telegram</span>
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Анимация для карточек
+        document.addEventListener('DOMContentLoaded', function() {
+            const card = document.querySelector('.card');
+            
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-3px)';
+                card.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
+                card.style.background = 'rgba(255, 255, 255, 0.85)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.1)';
+                card.style.background = 'rgba(255, 255, 255, 0.7)';
+            });
+            
+            // Анимация для видео
+            const videos = document.querySelectorAll('.video-container');
+            videos.forEach(video => {
+                video.addEventListener('mouseenter', () => {
+                    video.style.transform = 'scale(1.01)';
+                });
+                
+                video.addEventListener('mouseleave', () => {
+                    video.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
