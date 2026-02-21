@@ -114,28 +114,27 @@
         
         /* Main container */
         .container.my-5 {
-            padding-top: 80px;    /* Увеличено с 30px до 80px */
+            padding-top: 40px;    /* Уменьшено с 80px до 40px */
             padding-bottom: 30px;
         }
         
         /* Smaller and lighter header */
         h1 {
-            font-weight: 400;      /* Было 700, сделано тоньше */
+            font-weight: 600;      /* Немного плотнее (было 400) */
             color: #3d2a5e;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
             margin-bottom: 40px;
             position: relative;
             display: inline-block;
-            font-size: 2.8rem;     /* Увеличено с 2.2rem */
+            font-size: 2.4rem;     /* Уменьшено с 2.8rem */
         }
         
         h1::after {
             content: '';
             position: absolute;
             bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;           /* Увеличено с 70px */
+            left: 0;               /* Больше не центрируем фиксированную ширину */
+            width: 100%;            /* Линия на всю ширину текста */
             height: 3px;
             background: linear-gradient(90deg, #ff8c8c, #4a3ce6);
             border-radius: 2px;
@@ -163,7 +162,7 @@
             }
             
             h1 {
-                font-size: 2.2rem;   /* Соразмерно увеличено с 1.8rem */
+                font-size: 2.2rem;   /* Чуть меньше на мобильных */
                 margin-bottom: 30px;
             }
             
