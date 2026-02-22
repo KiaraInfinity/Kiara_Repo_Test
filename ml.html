@@ -25,6 +25,36 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* ===== НАВИГАЦИЯ (скопировано из второго файла) ===== */
+        .navbar {
+            background: linear-gradient(120deg, #4a2a7a, #2d3a9e, #b92ead);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 0.4rem 1.5rem;
+            min-height: 48px;
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .infinity-logo {
+            font-size: 1.4rem;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        /* ===== ФУТЕР (скопировано из второго файла) ===== */
+        footer {
+            background: linear-gradient(120deg, #4a2a7a, #2d3a9e, #b92ead);
+            color: white;
+            padding: 25px 0;
+            margin-top: 60px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+        }
+
         /* Custom styles for the machine learning topics page */
         .topics-container {
             max-width: 800px;
@@ -69,35 +99,35 @@
         /* Тонкие и маленькие ссылки */
         .topic-link {
             display: block;
-            padding: 15px 20px;  /* Уменьшено с 20px */
-            margin-bottom: 15px;  /* Уменьшено с 20px */
+            padding: 15px 20px;
+            margin-bottom: 15px;
             background: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;   /* Более угловатые */
+            border-radius: 8px;
             text-decoration: none;
             color: #333;
             font-weight: 600;
-            font-size: 1.1rem;    /* Уменьшен размер шрифта */
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05); /* Более легкая тень */
+            font-size: 1.1rem;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            border-left: 4px solid #5a4ae3; /* Более тонкая граница */
+            border-left: 4px solid #5a4ae3;
             border-top: 1px solid rgba(90, 74, 227, 0.1);
             border-right: 1px solid rgba(90, 74, 227, 0.1);
             border-bottom: 1px solid rgba(90, 74, 227, 0.1);
         }
 
         .topic-link:hover {
-            transform: translateX(8px); /* Меньшее смещение */
+            transform: translateX(8px);
             background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1); /* Более легкая тень */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
             color: #5a4ae3;
         }
 
         .topic-icon {
-            margin-right: 12px; /* Уменьшено */
+            margin-right: 12px;
             color: #5a4ae3;
-            width: 24px;        /* Уменьшено */
+            width: 24px;
             text-align: center;
-            font-size: 1.1rem;  /* Уменьшено */
+            font-size: 1.1rem;
         }
 
         .back-to-ml {
@@ -118,25 +148,14 @@
             background: rgba(255, 255, 255, 0.9);
         }
 
-        /* Inherit navbar and footer styles from index.html */
-        .navbar {
-            background: linear-gradient(120deg, #9a4bff, #5a7dff, #ff8cc6);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        footer {
-            background: linear-gradient(90deg, #9a4bff, #5a7dff);
-            color: white;
-            padding: 30px 0;
-            margin-top: 40px;
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
-        }
+        /* Bootstrap-классы для ссылок меню остаются стандартными */
     </style>
 </head>
 <body>
+    <!-- ========== НАВИГАЦИЯ (полностью скопирована из второго файла, активный пункт исправлен на Machine Learning) ========== -->
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
+        <div class="container px-0">
+            <a class="navbar-brand ps-3" href="index.html">
                 <span class="infinity-logo">∞</span>
                 <span>Infinite Maths</span>
             </a>
@@ -144,9 +163,10 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto pe-3">
                     <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="machine_learning.html"><i class="fas fa-brain me-1"></i> Machine Learning</a></li>
+                    <!-- Machine Learning теперь активен -->
+                    <li class="nav-item"><a class="nav-link active" href="machine_learning.html"><i class="fas fa-chart-line me-1"></i> Machine Learning</a></li>
                     <li class="nav-item"><a class="nav-link" href="binomial.html"><span style="font-family: 'Cambria Math', serif;">∫</span><i class="fas me-1"></i> Calculus</a></li>
                     <li class="nav-item"><a class="nav-link" href="discretemaths.html"><span style="font-family: 'Cambria Math', serif;">∈</span><i class="fas me-1"></i> Discrete Maths</a></li>
                     <li class="nav-item"><a class="nav-link" href="geometry.html"><i class="fas fa-percent me-1"></i> Probability Theory</a></li>
@@ -191,11 +211,12 @@
         </div>
     </div>
 
-    <footer class="text-center mt-5">
+    <!-- ========== ФУТЕР (полностью скопирован из второго файла) ========== -->
+    <footer class="text-center mt-4">
         <div class="container">
             <div class="mb-3">
-                <i class="fas fa-brain fa-2x mb-2"></i> <!-- Изменена иконка на мозг -->
-                <h4>Infinite Maths | Machine Learning</h4>
+                <i class="fa-solid fa-infinity fa-2x mb-2"></i>
+                <h4>Infinite Maths</h4>
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <a href="https://t.me/Kiara_infinita" class="text-decoration-none d-flex align-items-center" style="color: inherit;">
@@ -227,7 +248,7 @@
                     link.style.transition = 'opacity 0.5s, transform 0.5s';
                     link.style.opacity = '1';
                     link.style.transform = 'translateX(0)';
-                }, 300 + (index * 150)); // Задержка для каждой ссылки
+                }, 300 + (index * 150));
             });
             
             // Анимация при наведении на кнопку возврата
